@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import classNames from 'classnames/bind';
@@ -31,8 +31,29 @@ function Header({ className }) {
 
   const activeIndex = headerNav.findIndex((e) => e.path === location.pathname);
 
+  const [shrink, setShrink] = useState(false);
+
+  useEffect(() => {
+    const shrinkHeader = () => {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop) {
+        setShrink(true);
+      } else {
+        setShrink(false);
+      }
+    };
+
+    window.addEventListener('scroll', shrinkHeader);
+
+    return () => window.removeEventListener('scroll', shrinkHeader);
+  }, []);
+
   return (
-    <header ref={headerRef} className={cx('header')}>
+    <header
+      ref={headerRef}
+      className={cx('header', {
+        shrink,
+      })}
+    >
       <div className={cx('header-wrapper', { [className]: className })}>
         <div className={cx('header__logo')}>
           <img src={logo} alt="header-logo" />
