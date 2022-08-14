@@ -34,9 +34,9 @@ function Header({ className }) {
   useEffect(() => {
     const shrinkHeader = () => {
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop) {
-        headerRef.current.classList.add('shrink');
+        headerRef.current.classList.add(cx('shrink'));
       } else {
-        headerRef.current.classList.remove('shrink');
+        headerRef.current.classList.remove(cx('shrink'));
       }
     };
 

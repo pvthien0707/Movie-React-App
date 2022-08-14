@@ -67,9 +67,3 @@ iframe {
 .section__header {
   @include flex(center, space-between);
 }
-
-// header shrink
-.shrink {
-  height: $header-shrink-height;
-  background-color: $body-bg-color;
-}

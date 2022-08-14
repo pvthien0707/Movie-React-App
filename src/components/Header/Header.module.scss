@@ -11,6 +11,11 @@
   height: $header-height;
   transition: height 0.3s ease, background-color 0.3s ease;
 
+  &.shrink {
+    height: $header-shrink-height;
+    background-color: $body-bg-color;
+  }
+
   &-wrapper {
     @include flex(center, space-between);
     height: 100%;
