@@ -8,9 +8,9 @@ import { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 
-import movieApi, { category, movieType } from '@/api/movieApi';
+import movieApi, { movieType } from '@/api/movieApi';
 
-import HeroSlide from '@/components/HeroSlide/HeroSlide';
+import { HeroSlide, TrailerModal } from '@/components';
 
 import styles from './Hero.module.scss';
 const cx = classNames.bind(styles);
@@ -57,6 +57,10 @@ function Hero() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {movies.map((movie, index) => (
+        <TrailerModal key={index} item={movie} />
+      ))}
     </div>
   );
 }

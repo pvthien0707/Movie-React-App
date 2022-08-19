@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
-import styles from 'Modal.module.scss';
-
-const cx = classNames.bind(styles);
-
+import './Modal.scss';
 function Modal({ id, active, children }) {
   const [isActive, setIsActive] = useState(false);
 
@@ -14,7 +10,7 @@ function Modal({ id, active, children }) {
   }, [active]);
 
   return (
-    <div id={id} className={cx('modal', { active: isActive })}>
+    <div id={id} className={`modal ${isActive ? 'active' : ''}`}>
       {children}
     </div>
   );
