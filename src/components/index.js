@@ -6,3 +6,4 @@ export { default as Modal } from './Modal/Modal';
 export { default as ModalContent } from './Modal/ModalContent';
 export { default as TrailerModal } from './Modal/TrailerModal';
 export { default as Button } from './Button/Button';
+export { default as MovieList } from './MovieList/MovieList';

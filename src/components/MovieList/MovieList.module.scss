@@ -1,0 +1,26 @@
+@use '../../scss/variables' as *;
+@use '../../scss/breakpoints' as *;
+
+.movie-list {
+  &__slide {
+    width: 15%;
+  }
+}
+
+// Responsive
+
+@include tablet {
+  .movie-list {
+    &__slide {
+      width: 30%;
+    }
+  }
+}
+
+include tablet {
+  .movie-list {
+    &__slide {
+      width: 40%;
+    }
+  }
+}
