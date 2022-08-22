@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import movieApi, { category as cate } from '@/api/movieApi';
-import apiConfig from '@/api/apiConfig';
+import { MovieCard } from '@/components';
 
 import styles from './MovieList.module.scss';
 
@@ -16,7 +16,7 @@ function MovieList({ category, type, id }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const getMovies = async () => {
+    const getList = async () => {
       let response = null;
       const params = {};
 
@@ -34,7 +34,7 @@ function MovieList({ category, type, id }) {
       setMovies(response.results);
     };
 
-    getMovies();
+    getList();
   }, []);
 
   return (
@@ -42,7 +42,7 @@ function MovieList({ category, type, id }) {
       <Swiper grabCursor={true} spaceBetween={10} slidesPerView={'auto'}>
         {movies.map((movie, index) => (
           <SwiperSlide className={cx('movie-list__slide')} key={index}>
-            <img src={apiConfig.width500Image(movie.poster_path)} alt="" />
+            <MovieCard item={movie} category={category} />
           </SwiperSlide>
         ))}
       </Swiper>

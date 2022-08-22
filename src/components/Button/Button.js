@@ -4,12 +4,13 @@ import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 const cx = classNames.bind(styles);
 
-function Button({ outline, small, children, onClick }) {
+function Button({ outline, small, className, children, onClick }) {
   return (
     <button
       className={cx('btn', {
         outline,
         small,
+        [className]: className,
       })}
       onClick={onClick ? () => onClick() : null}
     >
