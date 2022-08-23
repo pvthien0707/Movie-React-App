@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import logo from '@/assets/images/logo.png';
-import bg from '@/assets/images/footer-bg.jpg';
+import bg from '@/assets/images/background.jpg';
 
 import styles from './Footer.module.scss';
 

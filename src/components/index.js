@@ -8,3 +8,4 @@ export { default as TrailerModal } from './Modal/TrailerModal';
 export { default as Button } from './Button/Button';
 export { default as MovieList } from './MovieList/MovieList';
 export { default as MovieCard } from './MovieCard/MovieCard';
+export { default as PageHeader } from './PageHeader/PageHeader';
