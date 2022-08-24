@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import movieApi, { category as cate, movieType, tvType } from '@/api/movieApi';
-import { MovieCard, Button } from '@/components';
+import { MovieCard, Button, MovieSearch } from '@/components';
 
 import styles from './MovieGrid.module.scss';
 
@@ -26,7 +26,9 @@ function MovieGrid({ category }) {
 
         switch (category) {
           case cate.movie:
-            response = await movieApi.getMovieList(movieType.upcoming, { params });
+            response = await movieApi.getMovieList(movieType.upcoming, {
+              params,
+            });
             break;
           default:
             response = await movieApi.getTvList(tvType.popular, { params });
@@ -52,7 +54,9 @@ function MovieGrid({ category }) {
 
       switch (category) {
         case cate.movie:
-          response = await movieApi.getMovieList(movieType.upcoming, { params });
+          response = await movieApi.getMovieList(movieType.upcoming, {
+            params,
+          });
           break;
         default:
           response = await movieApi.getTvList(tvType.popular, { params });
@@ -69,6 +73,10 @@ function MovieGrid({ category }) {
 
   return (
     <>
+      <div className="section">
+        <MovieSearch keyword={keyword} category={category} />
+      </div>
+
       <div className={cx('movie-grid')}>
         {movies.map((movie, index) => (
           <MovieCard key={index} item={movie} category={category} />

@@ -1,0 +1,35 @@
+@use '../../scss/breakpoints' as *;
+
+.movie-search {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+
+  input {
+    width: 100%;
+    padding-right: 130px;
+  }
+
+  button {
+    position: absolute;
+    top: 2px;
+    right: 0;
+  }
+}
+
+// Responsive
+
+@include mobile {
+  .movie-search {
+    input {
+      padding-right: 50px;
+    }
+
+    button {
+      top: 110%;
+      right: 50%;
+      transform: translateX(50%);
+      margin-top: 5px;
+    }
+  }
+}

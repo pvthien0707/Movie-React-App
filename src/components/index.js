@@ -10,3 +10,5 @@ export { default as MovieList } from './MovieList/MovieList';
 export { default as MovieCard } from './MovieCard/MovieCard';
 export { default as PageHeader } from './PageHeader/PageHeader';
 export { default as MovieGrid } from './MovieGrid/MovieGrid';
+export { default as Input } from './Input/Input';
+export { default as MovieSearch } from './MovieSearch/MovieSearch';
