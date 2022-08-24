@@ -9,3 +9,4 @@ export { default as Button } from './Button/Button';
 export { default as MovieList } from './MovieList/MovieList';
 export { default as MovieCard } from './MovieCard/MovieCard';
 export { default as PageHeader } from './PageHeader/PageHeader';
+export { default as MovieGrid } from './MovieGrid/MovieGrid';
