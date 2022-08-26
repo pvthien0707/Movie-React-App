@@ -73,9 +73,7 @@ function MovieGrid({ category }) {
 
   return (
     <>
-      <div className="section">
-        <MovieSearch keyword={keyword} category={category} />
-      </div>
+      <MovieSearch keyword={keyword} category={category} />
 
       <div className={cx('movie-grid')}>
         {movies.map((movie, index) => (

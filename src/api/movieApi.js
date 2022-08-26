@@ -36,7 +36,7 @@ const movieApi = {
     return axiosClient.get(url, { params: {} });
   },
 
-  getDetails: (cat, id, params) => {
+  getDetail: (cat, id, params) => {
     const url = `${category[cat]}/${id}`;
 
     return axiosClient.get(url, params);

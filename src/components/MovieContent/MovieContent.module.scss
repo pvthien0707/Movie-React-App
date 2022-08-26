@@ -1,0 +1,68 @@
+@use '../../scss/mixins' as *;
+@use '../../scss/breakpoints' as *;
+@use '../../scss/variables' as *;
+
+.movie-content {
+  position: relative;
+  @include flex(flex-start, flex-start);
+  max-width: 1260px;
+  padding: 0 32px;
+  margin: -200px auto 48px;
+
+  &-poster {
+    flex: 1;
+
+    &__img {
+      padding-top: 165%;
+      border-radius: $border-radius;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &-info {
+    position: relative;
+    width: 70%;
+    padding-left: 32px;
+
+    & > * {
+      margin-bottom: 32px;
+    }
+
+    &__title {
+      font-size: 6.4rem;
+      line-height: 1;
+    }
+
+    &-genres {
+      & > * ~ * {
+        margin-left: 8px;
+      }
+
+      &__item {
+        padding: 8px 24px;
+        border: 2px solid $white-color;
+        border-radius: $border-radius;
+        background-color: $body-bg-color;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// responsive
+
+@include mobile {
+  .movie-content {
+    &-poster {
+      display: none;
+    }
+
+    &-info {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+}

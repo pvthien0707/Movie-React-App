@@ -1,0 +1,26 @@
+@use '../../scss/mixins' as *;
+
+.cast {
+  &__header {
+    @include flex(center, space-between);
+    margin-bottom: 32px;
+  }
+
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+  }
+
+  &-item {
+    &__img {
+      padding-top: 160px;
+      margin-bottom: 8px;
+      background-size: cover;
+    }
+
+    &__name {
+      font-size: 1.4rem;
+    }
+  }
+}

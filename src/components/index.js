@@ -12,3 +12,7 @@ export { default as PageHeader } from './PageHeader/PageHeader';
 export { default as MovieGrid } from './MovieGrid/MovieGrid';
 export { default as Input } from './Input/Input';
 export { default as MovieSearch } from './MovieSearch/MovieSearch';
+export { default as Banner } from './Banner/Banner';
+export { default as MovieContent } from './MovieContent/MovieContent';
+export { default as Cast } from './Cast/Cast';
+export { default as VideoList } from './VideoList/VideoList';

@@ -4,6 +4,7 @@
   position: relative;
   width: 100%;
   max-width: 500px;
+  margin-bottom: 24px;
 
   input {
     width: 100%;
@@ -21,15 +22,9 @@
 
 @include mobile {
   .movie-search {
-    input {
-      padding-right: 50px;
-    }
-
     button {
-      top: 110%;
-      right: 50%;
-      transform: translateX(50%);
-      margin-top: 5px;
+      top: 1px;
+      right: 1px;
     }
   }
 }
