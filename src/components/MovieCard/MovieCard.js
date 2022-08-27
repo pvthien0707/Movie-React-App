@@ -20,12 +20,15 @@ function MovieCard({ item, category }) {
 
   return (
     <Link to={link}>
-      <div className={cx('movie-card')} style={{ backgroundImage: `url(${bgUrl})` }}>
+      <div
+        className={cx('movie-card')}
+        style={{ backgroundImage: `url(${bgUrl})` }}
+      >
         <Button className={cx('movie-card__btn')}>
           <FontAwesomeIcon icon={faPlay} />
         </Button>
       </div>
-      <h3>{item.title || item.name}</h3>
+      <h3 className={cx('movie-card-title')}>{item.title || item.name}</h3>
     </Link>
   );
 }

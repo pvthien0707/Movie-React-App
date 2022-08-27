@@ -22,6 +22,7 @@ function Button({ outline, small, className, children, onClick }) {
 Button.propTypes = {
   outline: PropTypes.bool,
   small: PropTypes.bool,
+  className: PropTypes.string,
   children: PropTypes.node,
   onClick: PropTypes.func,
 };

@@ -1,5 +1,6 @@
-import { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useRef } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 

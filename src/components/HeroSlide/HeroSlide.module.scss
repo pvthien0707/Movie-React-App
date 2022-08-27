@@ -125,3 +125,26 @@
     }
   }
 }
+
+@include mobile {
+  .hero-slide-content-info {
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__overview {
+      font-size: 1.4rem;
+    }
+
+    &__btns {
+      button {
+        font-size: 1.4rem;
+        padding: 8px 16px;
+      }
+    }
+
+    &__btns > * ~ * {
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 @use '../../scss/variables' as *;
+@use '../../scss/breakpoints' as *;
 
 .movie-card {
   position: relative;
@@ -36,5 +37,12 @@
     &:hover &__btn {
       transform: scale(1) translate(-50%, -50%);
     }
+  }
+}
+
+// responsive
+@include mobile {
+  .movie-card-title {
+    font-size: 1.6rem;
   }
 }

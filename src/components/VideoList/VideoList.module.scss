@@ -1,3 +1,5 @@
+@use '../../scss/breakpoints' as *;
+
 .video-list {
   margin-top: 48px;
 }
@@ -7,5 +9,15 @@
 
   &__title {
     margin-bottom: 24px;
+  }
+}
+
+// Responsive
+
+@include mobile {
+  .video {
+    &__title {
+      font-size: 1.4rem;
+    }
   }
 }

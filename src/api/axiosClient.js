@@ -8,17 +8,13 @@ const axiosClient = axios.create({
   headers: {
     'content-type': 'application/json',
   },
-  paramsSerializer: (params) => queryString.stringify({ ...params, api_key: apiConfig.apiKey }),
+  paramsSerializer: (params) =>
+    queryString.stringify({ ...params, api_key: apiConfig.apiKey }),
 });
 
-axiosClient.interceptors.request.use(
-  async (config) => {
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
-);
+axiosClient.interceptors.request.use(async (config) => {
+  return config;
+});
 
 axiosClient.interceptors.response.use(
   (response) => {
@@ -27,7 +23,7 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    return Promise.reject(error);
+    throw error;
   },
 );
 

@@ -10,7 +10,7 @@ import 'swiper/css';
 
 import movieApi, { movieType } from '@/api/movieApi';
 
-import { HeroSlide, TrailerModal } from '@/components';
+import { HeroSlide } from '@/components';
 
 import styles from './Hero.module.scss';
 const cx = classNames.bind(styles);
@@ -19,21 +19,20 @@ function Hero() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const getMovies = async () => {
-      const params = { page: 1 };
-
+    const getMovieList = async () => {
       try {
+        const params = { page: 1 };
         const response = await movieApi.getMovieList(movieType.popular, {
           params,
         });
+        console.log('Get movie list successfully.');
         setMovies(response.results.slice(1, 4));
-        console.log(response);
-      } catch {
-        throw new Error('error');
+      } catch (error) {
+        console.error('Fail to get movie list: ', error);
       }
     };
 
-    getMovies();
+    getMovieList();
   }, []);
 
   return (
@@ -43,7 +42,7 @@ function Hero() {
         grabCursor={true}
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{ delay: 2500 }}
+        // autoplay={{ delay: 2500 }}
       >
         {movies.map((movie, index) => (
           <SwiperSlide key={index}>
@@ -57,10 +56,6 @@ function Hero() {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {movies.map((movie, index) => (
-        <TrailerModal key={index} item={movie} />
-      ))}
     </div>
   );
 }
