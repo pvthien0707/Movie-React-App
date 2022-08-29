@@ -17,10 +17,10 @@
   }
 }
 
-include tablet {
+@include mobile {
   .movie-list {
     &__slide {
-      width: 40%;
+      width: 60%;
     }
   }
 }

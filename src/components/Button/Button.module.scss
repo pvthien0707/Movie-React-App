@@ -6,26 +6,26 @@
   border-radius: $border-radius;
   padding: 8px 28px;
   background-color: $primary-color;
-  box-shadow: 0px 0px 7px 8px #ff00004d;
   cursor: pointer;
   font-size: 2.4rem;
   font-family: $font-family;
-  color: $white-color;
-  transition: box-shadow 0.3s ease;
+  color: $black-color;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    box-shadow: 0px 0px 7px 15px #ff00004d;
+    background-color: #f2f2f2;
   }
 
   &.outline {
-    border: 3px solid $white-color;
+    border: 3px solid $primary-color;
     background-color: transparent;
     box-shadow: unset;
+    color: $white-color;
     transition: color 0.3s ease, background-color 0.3s ease;
 
     &:hover {
       color: $primary-color;
-      background-color: $white-color;
+      background-color: #616161;
     }
   }
 
