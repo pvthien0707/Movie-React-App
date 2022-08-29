@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
+    "gh-pages": "^4.0.0",
     "normalize.css": "^8.0.1",
     "query-string": "^7.1.1",
     "react": "^18.2.0",
@@ -25,7 +26,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "react-app-rewired build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,5 +53,6 @@
     "customize-cra": "^1.0.0",
     "react-app-rewired": "^2.2.1",
     "sass": "^1.54.3"
-  }
+  },
+  "homepage": "http://pvthien0707.github.io/Movie-React-App"
 }
