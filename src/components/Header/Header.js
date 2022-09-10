@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 const headerNav = [
   {
     display: 'Home',
-    path: '/',
+    path: '/Movie-React-App',
   },
   {
     display: 'Movie',
@@ -52,7 +52,7 @@ function Header({ className }) {
       <div className={cx('header-wrapper', { [className]: className })}>
         <div className={cx('header__logo')}>
           <img src={logo} alt="header-logo" />
-          <Link to="/">DBMovie</Link>
+          <Link to="/Movie-React-App">DBMovie</Link>
         </div>
         <nav>
           <ul className={cx('header-navigation')}>
