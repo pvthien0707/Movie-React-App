@@ -1,19 +1,13 @@
 import { useState, useEffect } from 'react';
-import classNames from 'classnames/bind';
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import required modules
 import { Autoplay } from 'swiper';
-// Import Swiper styles
-import 'swiper/css';
 
 import movieApi, { movieType } from '@/api/movieApi';
 
 import { HeroSlide } from '@/components';
 
-import styles from './Hero.module.scss';
-const cx = classNames.bind(styles);
+import 'swiper/css';
+import './Hero.scss';
 
 function Hero() {
   const [movies, setMovies] = useState([]);
@@ -36,19 +30,19 @@ function Hero() {
   }, []);
 
   return (
-    <div className={cx('hero')}>
+    <div className="hero">
       <Swiper
         modules={[Autoplay]}
         grabCursor={true}
         spaceBetween={0}
         slidesPerView={1}
-        // autoplay={{ delay: 2500 }}
+        autoplay={{ delay: 2500 }}
       >
         {movies.map((movie, index) => (
           <SwiperSlide key={index}>
             {({ isActive }) => (
               <HeroSlide
-                className={'container'}
+                className="container"
                 item={movie}
                 isActive={isActive ? isActive : false}
               />

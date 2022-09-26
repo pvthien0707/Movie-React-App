@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -8,10 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import movieApi, { category as cate } from '@/api/movieApi';
 import { MovieCard } from '@/components';
 
-import styles from './MovieList.module.scss';
-
-const cx = classNames.bind(styles);
-
+import './MovieList.scss';
 function MovieList({ category, type, id }) {
   const [movies, setMovies] = useState([]);
 
@@ -38,10 +34,10 @@ function MovieList({ category, type, id }) {
   }, []);
 
   return (
-    <div className={cx('movie-list')}>
+    <div className="movie-list">
       <Swiper grabCursor={true} spaceBetween={10} slidesPerView={'auto'}>
         {movies.map((movie, index) => (
-          <SwiperSlide className={cx('movie-list__slide')} key={index}>
+          <SwiperSlide className="movie-list__slide" key={index}>
             <MovieCard item={movie} category={category} />
           </SwiperSlide>
         ))}

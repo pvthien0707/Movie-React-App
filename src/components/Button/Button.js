@@ -1,17 +1,13 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
-import styles from './Button.module.scss';
-const cx = classNames.bind(styles);
+import './Button.scss';
 
 function Button({ outline, small, className, children, onClick }) {
   return (
     <button
-      className={cx('btn', {
-        outline,
-        small,
-        [className]: className,
-      })}
+      className={`btn ${outline ? 'btn--outline' : ''} ${
+        small ? 'btn--small' : ''
+      } ${className}`}
       onClick={onClick ? () => onClick() : null}
     >
       {children}

@@ -1,15 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
 import apiConfig from '@/api/apiConfig';
 import movieApi, { category } from '@/api/movieApi';
 
 import { Button, TrailerModal } from '@/components';
 
-import styles from './HeroSlide.module.scss';
-const cx = classNames.bind(styles);
-
+import './Hero.scss';
 function HeroSlide({ item, isActive, className }) {
   let navigate = useNavigate();
 
@@ -38,18 +35,16 @@ function HeroSlide({ item, isActive, className }) {
 
   return (
     <div
-      className={cx('hero-slide', { active: isActive })}
+      className={`hero-slide ${isActive ? 'active' : ''}`}
       style={{ backgroundImage: `url(${backgroundPath})` }}
     >
-      <div className={cx('hero-slide-content', { [className]: className })}>
-        <div className={cx('hero-slide-content-info')}>
-          <h2 className={cx('hero-slide-content-info__title')}>
-            {slideItem.title}
-          </h2>
-          <p className={cx('hero-slide-content-info__overview')}>
+      <div className={`hero-slide-content ${className}`}>
+        <div className="hero-slide-content-info">
+          <h2 className="hero-slide-content-info__title">{slideItem.title}</h2>
+          <p className="hero-slide-content-info__overview">
             {slideItem.overview}
           </p>
-          <div className={cx('hero-slide-content-info__btns')}>
+          <div className="hero-slide-content-info__btns">
             <Button onClick={() => navigate(`/movie/${slideItem.id}`)}>
               Watch now
             </Button>
@@ -58,7 +53,7 @@ function HeroSlide({ item, isActive, className }) {
             </Button>
           </div>
         </div>
-        <div className={cx('hero-slide-content__poster')}>
+        <div className="hero-slide-content__poster">
           <img src={apiConfig.width500Image(slideItem.poster_path)} alt="" />
         </div>
       </div>

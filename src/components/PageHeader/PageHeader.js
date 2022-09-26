@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
-import bg from '@/assets/images/background.jpg';
+import { images } from '@/constants';
 
-import styles from './PageHeader.module.scss';
-
-const cx = classNames.bind(styles);
-
+import './PageHeader.scss';
 function PageHeader({ children }) {
   return (
-    <header className={cx('page-header')} style={{ backgroundImage: `url(${bg})` }}>
+    <header
+      className="page-header"
+      style={{ backgroundImage: `url(${images.bg})` }}
+    >
       <h2>{children}</h2>
     </header>
   );

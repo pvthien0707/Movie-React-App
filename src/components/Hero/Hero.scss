@@ -1,0 +1,162 @@
+@use '../../scss/utils/' as *;
+
+.hero {
+  margin-bottom: 48px;
+
+  &-slide {
+    position: relative;
+    width: 100%;
+    padding: 144px 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+
+    @include tablet {
+      max-height: 550px;
+    }
+
+    @include mobile {
+      min-height: 60vh;
+      padding: 100px 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include overlay();
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-image: linear-gradient(to top, $bodyBg, rgba($black, 0));
+    }
+
+    &-content {
+      position: relative;
+      @include flex();
+
+      &-info {
+        position: relative;
+        width: 55%;
+        padding: 0 48px;
+
+        @include tablet {
+          width: 100%;
+        }
+
+        & > * ~ * {
+          margin-top: 48px;
+          font-weight: 700;
+          line-height: 1;
+
+          @include mobile {
+            margin-top: 24px;
+          }
+        }
+
+        &__title,
+        &__overview,
+        &__btns {
+          opacity: 0;
+          transform: translateY(-100px);
+          transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        &__title {
+          font-size: 8rem;
+
+          @include tablet {
+            font-size: 6.4rem;
+          }
+
+          @include mobile {
+            font-size: 3rem;
+          }
+        }
+
+        &__overview {
+          font-weight: 700;
+          line-height: 1.2;
+
+          @include mobile {
+            font-size: 1.4rem;
+          }
+        }
+
+        &__btns {
+          @include flex(center, unset);
+
+          @include mobile {
+            button {
+              font-size: 1.4rem;
+              padding: 8px 16px;
+            }
+          }
+        }
+
+        &__btns > * ~ * {
+          margin-left: 16px;
+
+          @include mobile {
+            margin-left: 5px;
+          }
+        }
+      }
+
+      &__poster {
+        position: relative;
+        flex: 1;
+        @include flex(center, flex-start);
+
+        @include tablet {
+          display: none;
+        }
+
+        img {
+          width: 400px;
+          border-radius: $borderRadius;
+          box-shadow: $boxShadow;
+          transform: scale(0);
+          transition: transform 0.7s ease;
+        }
+      }
+    }
+
+    &.active &-content-info {
+      &__title,
+      &__overview,
+      &__btns {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      &__title {
+        transition-delay: 0.3s, 0.3s;
+      }
+
+      &__overview {
+        transition-delay: 0.6s, 0.6s;
+      }
+
+      &__btns {
+        transition-delay: 0.9s, 0.9s;
+      }
+    }
+
+    &.active &-content__poster {
+      img {
+        transform: scale(1);
+      }
+    }
+  }
+}

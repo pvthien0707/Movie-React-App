@@ -1,14 +1,12 @@
+import PropTypes from 'prop-types';
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import movieApi from '@/api/movieApi';
 import apiConfig from '@/api/apiConfig';
 
-import classNames from 'classnames/bind';
-
-import styles from './Cast.module.scss';
-
-const cx = classNames.bind(styles);
+import './Cast.scss';
 
 function Cast({ id }) {
   const { category } = useParams();
@@ -18,23 +16,21 @@ function Cast({ id }) {
   useEffect(() => {
     const getCredits = async () => {
       const response = await movieApi.getCredits(category, id);
-
       setCasts(response.cast.slice(0, 5));
     };
-
     getCredits();
   }, [category, id]);
 
   return (
-    <div className={cx('cast')}>
-      <div className={cx('cast__header')}>
+    <div className="cast">
+      <div className="cast__header">
         <h2>Casts</h2>
       </div>
-      <div className={cx('cast-list')}>
+      <div className="cast-list">
         {casts.map((cast, index) => (
-          <div key={index} className={cx('cast-item')}>
+          <div key={index} className="cast-item">
             <div
-              className={cx('cast-item__img')}
+              className="cast-item__img"
               style={{
                 backgroundImage: `url(${apiConfig.width500Image(
                   cast.profile_path,
@@ -42,12 +38,16 @@ function Cast({ id }) {
               }}
             ></div>
 
-            <p className={cx('cast-item__name')}>{cast.name}</p>
+            <p className="cast-item__name">{cast.name}</p>
           </div>
         ))}
       </div>
     </div>
   );
 }
+
+Cast.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default Cast;

@@ -1,6 +1,6 @@
 export { default as Header } from './Header/Header';
 export { default as Hero } from './Hero/Hero';
-export { default as HeroSlide } from './HeroSlide/HeroSlide';
+export { default as HeroSlide } from './Hero/HeroSlide';
 export { default as Footer } from './Footer/Footer';
 export { default as Modal } from './Modal/Modal';
 export { default as ModalContent } from './Modal/ModalContent';

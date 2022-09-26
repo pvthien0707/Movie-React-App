@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
 import apiConfig from '@/api/apiConfig';
 
-import styles from './Banner.module.scss';
-
-const cx = classNames.bind(styles);
+import './Banner.scss';
 
 function Banner({ item }) {
   return (
     <div
-      className={cx('banner')}
+      className={'banner'}
       style={{
         backgroundImage: `url(${apiConfig.originalImage(
           item.backdrop_path || item.poster_path,

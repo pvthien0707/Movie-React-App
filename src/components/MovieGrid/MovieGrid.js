@@ -1,15 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import classNames from 'classnames/bind';
 
 import movieApi, { category as cate, movieType, tvType } from '@/api/movieApi';
 import { MovieCard, Button, MovieSearch } from '@/components';
 
-import styles from './MovieGrid.module.scss';
-
-const cx = classNames.bind(styles);
-
+import './MovieGrid.scss';
 function MovieGrid({ category }) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -75,14 +71,14 @@ function MovieGrid({ category }) {
     <>
       <MovieSearch keyword={keyword} category={category} />
 
-      <div className={cx('movie-grid')}>
+      <div className="movie-grid">
         {movies.map((movie, index) => (
           <MovieCard key={index} item={movie} category={category} />
         ))}
       </div>
 
       {page < totalPage ? (
-        <div className={cx('movie-grid-more')}>
+        <div className="movie-grid-more">
           <Button outline small onClick={handleLoadMore}>
             Load more
           </Button>

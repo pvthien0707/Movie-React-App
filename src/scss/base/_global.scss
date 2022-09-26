@@ -1,8 +1,4 @@
-@use '../../scss/variables' as *;
-@use '../../scss/breakpoints' as *;
-@use '../../scss/mixins' as *;
-
-@import 'normalize.css';
+@use '../utils/' as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -17,12 +13,12 @@ html {
 }
 
 body {
-  font-size: $font-size;
-  font-weight: $font-weight;
-  font-family: $font-family;
-  line-height: $line-height;
-  color: $txt-color;
-  background-color: $body-bg-color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  font-family: $fontFamily;
+  line-height: $lineHeight;
+  color: $txtColor;
+  background-color: $bodyBg;
 
   @include mobile {
     margin-bottom: 2.5rem;
@@ -34,7 +30,7 @@ a {
   color: unset;
 
   &:hover {
-    color: $primary-color;
+    color: $mainColor;
   }
 }
 
@@ -52,6 +48,7 @@ ul {
 }
 
 iframe {
+  height: 100%;
   border: 0;
 }
 
@@ -63,21 +60,17 @@ iframe {
 .section {
   padding: 0 32px;
   margin-bottom: 48px;
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
 }
 
 .section__header {
   @include flex(center, space-between);
   margin-bottom: 32px;
-}
 
-// responsive
-
-@include mobile {
-  .section {
-    margin-bottom: 40px;
-  }
-
-  .section__header {
+  @include mobile {
     h2 {
       font-size: 1.8rem;
     }

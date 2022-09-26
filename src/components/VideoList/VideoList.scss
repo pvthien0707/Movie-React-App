@@ -1,0 +1,23 @@
+@use '../../scss/utils/' as *;
+
+.video-list {
+  margin-top: 48px;
+
+  @include mobile {
+    margin-top: 24px;
+  }
+}
+
+.video {
+  margin-bottom: 48px;
+
+  &__title {
+    margin-bottom: 24px;
+
+    @include mobile {
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

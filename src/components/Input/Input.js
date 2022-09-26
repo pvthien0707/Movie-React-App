@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
-import styles from './Input.module.scss';
-
-const cx = classNames.bind(styles);
+import './Input.scss';
 
 function Input({ type = 'text', value, placeholder, onChange }) {
   return (
     <input
-      className={cx('input')}
+      className="input"
       type={type}
       value={value}
       placeholder={placeholder}
@@ -19,7 +16,9 @@ function Input({ type = 'text', value, placeholder, onChange }) {
 
 Input.propTypes = {
   type: PropTypes.string,
+  value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Input;

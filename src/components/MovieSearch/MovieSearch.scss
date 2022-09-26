@@ -1,4 +1,4 @@
-@use '../../scss/breakpoints' as *;
+@use '../../scss/utils/' as *;
 
 .movie-search {
   position: relative;
@@ -15,14 +15,8 @@
     position: absolute;
     top: 2px;
     right: 0;
-  }
-}
 
-// Responsive
-
-@include mobile {
-  .movie-search {
-    button {
+    @include mobile {
       top: 1px;
       right: 1px;
     }

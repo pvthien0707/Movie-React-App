@@ -1,10 +1,7 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
-import classNames from 'classnames/bind';
-
-import styles from './VideoList.module.scss';
-
-const cx = classNames.bind(styles);
+import './VideoList.scss';
 
 function Video({ item }) {
   const iframeRef = useRef(null);
@@ -15,8 +12,8 @@ function Video({ item }) {
   }, []);
 
   return (
-    <div className={cx('video')}>
-      <div className={cx('video__title')}>
+    <div className="video">
+      <div className="video__title">
         <h2>{item.name}</h2>
       </div>
       <iframe
@@ -28,5 +25,9 @@ function Video({ item }) {
     </div>
   );
 }
+
+Video.propTypes = {
+  item: PropTypes.object.isRequired,
+};
 
 export default Video;

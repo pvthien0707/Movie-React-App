@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import './Modal.scss';
-
 function ModalContent({ children, onClose }) {
   const modalContentRef = useRef(null);
 

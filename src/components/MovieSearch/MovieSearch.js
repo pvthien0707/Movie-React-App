@@ -1,13 +1,11 @@
+import PropTypes from 'prop-types';
 import { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import classNames from 'classnames/bind';
 
 import { Input, Button } from '@/components';
 import { category as cate } from '@/api/movieApi';
 
-import styles from './MovieSearch.module.scss';
-
-const cx = classNames.bind(styles);
+import './MovieSearch.scss';
 
 function MovieSearch({ keyword, category }) {
   const navigate = useNavigate();
@@ -39,7 +37,7 @@ function MovieSearch({ keyword, category }) {
   }, [searchInput, handleSearch]);
 
   return (
-    <div className={cx('movie-search')}>
+    <div className="movie-search">
       <Input
         value={searchInput}
         placeholder="Enter keyword"
@@ -52,5 +50,10 @@ function MovieSearch({ keyword, category }) {
     </div>
   );
 }
+
+MovieSearch.propTypes = {
+  keyword: PropTypes.string,
+  category: PropTypes.string.isRequired,
+};
 
 export default MovieSearch;

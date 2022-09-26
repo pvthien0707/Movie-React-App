@@ -1,18 +1,15 @@
+import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import classNames from 'classnames/bind';
+import { images } from '@/constants';
 
-import logo from '@/assets/images/logo.png';
-
-import styles from './Header.module.scss';
-
-const cx = classNames.bind(styles);
+import './Header.scss';
 
 const headerNav = [
   {
     display: 'Home',
-    path: '/Movie-React-App',
+    path: '/',
   },
   {
     display: 'Movie',
@@ -34,12 +31,11 @@ function Header({ className }) {
   useEffect(() => {
     const shrinkHeader = () => {
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop) {
-        headerRef.current.classList.add(cx('shrink'));
+        headerRef.current.classList.add('shrink');
       } else {
-        headerRef.current.classList.remove(cx('shrink'));
+        headerRef.current.classList.remove('shrink');
       }
     };
-
     window.addEventListener('scroll', shrinkHeader);
 
     return () => {
@@ -48,24 +44,19 @@ function Header({ className }) {
   }, []);
 
   return (
-    <header ref={headerRef} className={cx('header')}>
-      <div className={cx('header-wrapper', { [className]: className })}>
-        <div className={cx('header__logo')}>
-          <img src={logo} alt="header-logo" />
-          <Link to="/Movie-React-App">DBMovie</Link>
+    <header ref={headerRef} className="header">
+      <div className={`header-wrapper ${className}`}>
+        <div className="header__logo">
+          <img src={images.logo} alt="header-logo" />
+          <Link to="/">DBMovie</Link>
         </div>
         <nav>
-          <ul className={cx('header-navigation')}>
+          <ul className="header-navigation">
             {headerNav.map((e, i) => {
               const active = i === activeIndex ? 'active' : '';
 
               return (
-                <li
-                  className={cx('header-navigation__item', {
-                    active,
-                  })}
-                  key={i}
-                >
+                <li className={`header-navigation__item ${active}`} key={i}>
                   <Link to={e.path}>{e.display}</Link>
                 </li>
               );
@@ -76,5 +67,9 @@ function Header({ className }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Header;

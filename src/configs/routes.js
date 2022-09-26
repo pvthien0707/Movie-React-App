@@ -2,7 +2,7 @@ import { Home, Catalog, Detail } from '@/pages';
 
 const publicRoutes = [
   {
-    path: '/Movie-React-App',
+    path: '/',
     component: Home,
   },
   {

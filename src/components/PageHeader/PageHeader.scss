@@ -1,12 +1,12 @@
-@use '../../scss/variables' as *;
+@use '../../scss/utils/' as *;
 
 .page-header {
   position: relative;
+  padding: $headerHeight 0 32px;
+  margin-bottom: 32px;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: $header-height 0 32px;
-  margin-bottom: 32px;
   text-align: center;
 
   &::after {
@@ -16,7 +16,7 @@
     left: 0;
     width: 100%;
     height: 100px;
-    background-image: linear-gradient(to top, $body-bg-color, rgba($black-color, 0));
+    background-image: linear-gradient(to top, $bodyBg, rgba($black, 0));
   }
 
   h2 {

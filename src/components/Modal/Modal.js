@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 
 import './Modal.scss';
 function Modal({ id, active, children }) {
